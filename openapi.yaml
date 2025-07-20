@@ -1,0 +1,117 @@
+openapi: "3.0.0"
+info:
+  version: "1"
+  title: ""
+  description: ""
+paths:
+  /storyWithDetails:
+    get:
+      operationId: "getStoryWithDetails"
+      description: ""
+      parameters:
+        - in: "query"
+          name: "endDate"
+          schema:
+            type: "string"
+        - in: "query"
+          name: "keyword"
+          schema:
+            type: "string"
+        - in: "query"
+          name: "lat"
+          schema:
+            type: "string"
+        - in: "query"
+          name: "lon"
+          schema:
+            type: "string"
+        - in: "query"
+          name: "radiusInMeters"
+          schema:
+            type: "string"
+        - in: "query"
+          name: "startDate"
+          schema:
+            type: "string"
+      responses:
+        200:
+          description: ""
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/StoryWithDetailsPaged"
+components:
+  securitySchemes: {}
+  schemas:
+    StoryWithDetails:
+      properties:
+        storyUrl:
+          nullable: false
+          type: "string"
+        storyDateTime:
+          nullable: false
+          type: "string"
+        storyTitle:
+          nullable: false
+          type: "string"
+        storyText:
+          nullable: true
+          type: "string"
+        locationLabel:
+          nullable: false
+          type: "string"
+        locationBoundingbox:
+          nullable: false
+          type: "array"
+          items:
+            type: "number"
+        locationBoundingboxArea:
+          nullable: false
+          type: "number"
+        locationPoint:
+          nullable: false
+          type: "string"
+        keywords:
+          nullable: false
+          type: "array"
+          items:
+            type: "string"
+    StoryWithDetailsPaged:
+      properties:
+        content:
+          nullable: false
+          type: "array"
+          items:
+            $ref: "#/components/schemas/StoryWithDetails"
+        page:
+          nullable: false
+          $ref: "#/components/schemas/PageInfo"
+    PageInfo:
+      properties:
+        size:
+          nullable: false
+          type: "number"
+        number:
+          nullable: false
+          type: "number"
+        totalElements:
+          nullable: false
+          type: "number"
+        totalPages:
+          nullable: false
+          type: "number"
+    Point:
+      properties:
+        type:
+          nullable: false
+          type: "string"
+        coordinates:
+          nullable: false
+          type: "array"
+          items:
+            type: "number"
+    Location:
+      properties:
+        geometry:
+          nullable: false
+          $ref: "#/components/schemas/Point"
