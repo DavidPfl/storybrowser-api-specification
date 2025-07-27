@@ -36,11 +36,11 @@ paths:
         - in: "query"
           name: "pageNumber"
           schema:
-            type: "number"
+            type: "integer"
         - in: "query"
           name: "pageSize"
           schema:
-            type: "number"
+            type: "integer"
         - in: "query"
           name: "sortBy"
           schema:
