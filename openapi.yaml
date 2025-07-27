@@ -22,14 +22,17 @@ paths:
           name: lat
           schema:
             type: number
+            format: double
         - in: query
           name: lon
           schema:
             type: number
+            format: double
         - in: query
           name: radiusInMeters
           schema:
             type: number
+            format: double
         - in: query
           name: startDate
           schema:
@@ -108,16 +111,16 @@ components:
       properties:
         size:
           nullable: false
-          type: number
+          type: integer
         number:
           nullable: false
-          type: number
+          type: integer
         totalElements:
           nullable: false
-          type: number
+          type: integer
         totalPages:
           nullable: false
-          type: number
+          type: integer
     Point:
       properties:
         type:
