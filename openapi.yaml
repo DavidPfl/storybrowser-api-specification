@@ -33,6 +33,22 @@ paths:
           name: "startDate"
           schema:
             type: "string"
+        - in: "query"
+          name: "pageNumber"
+          schema:
+            type: "number"
+        - in: "query"
+          name: "pageSize"
+          schema:
+            type: "number"
+        - in: "query"
+          name: "sortBy"
+          schema:
+            type: "string"
+        - in: "query"
+          name: "ascending"
+          schema:
+            type: "boolean"
       responses:
         200:
           description: ""
