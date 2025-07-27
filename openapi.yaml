@@ -6,49 +6,51 @@ info:
 paths:
   /storyWithDetails:
     get:
-      operationId: "getStoryWithDetails"
+      operationId: getStoryWithDetails
       description: ""
       parameters:
-        - in: "query"
-          name: "endDate"
+        - in: query
+          name: endDate
           schema:
-            type: "string"
-        - in: "query"
-          name: "keyword"
+            type: string
+            format: date-time
+        - in: query
+          name: keyword
           schema:
-            type: "string"
-        - in: "query"
-          name: "lat"
+            type: string
+        - in: query
+          name: lat
           schema:
-            type: "string"
-        - in: "query"
-          name: "lon"
+            type: number
+        - in: query
+          name: lon
           schema:
-            type: "string"
-        - in: "query"
-          name: "radiusInMeters"
+            type: number
+        - in: query
+          name: radiusInMeters
           schema:
-            type: "string"
-        - in: "query"
-          name: "startDate"
+            type: number
+        - in: query
+          name: startDate
           schema:
-            type: "string"
-        - in: "query"
-          name: "pageNumber"
+            type: string
+            format: date-time
+        - in: query
+          name: pageNumber
           schema:
-            type: "integer"
-        - in: "query"
-          name: "pageSize"
+            type: integer
+        - in: query
+          name: pageSize
           schema:
-            type: "integer"
-        - in: "query"
-          name: "sortBy"
+            type: integer
+        - in: query
+          name: sortBy
           schema:
-            type: "string"
-        - in: "query"
-          name: "ascending"
+            type: string
+        - in: query
+          name: ascending
           schema:
-            type: "boolean"
+            type: boolean
       responses:
         200:
           description: ""
@@ -63,40 +65,40 @@ components:
       properties:
         storyUrl:
           nullable: false
-          type: "string"
+          type: string
         storyDateTime:
           nullable: false
-          type: "string"
+          type: string
         storyTitle:
           nullable: false
-          type: "string"
+          type: string
         storyText:
           nullable: true
-          type: "string"
+          type: string
         locationLabel:
           nullable: false
-          type: "string"
+          type: string
         locationBoundingbox:
           nullable: false
-          type: "array"
+          type: array
           items:
-            type: "number"
+            type: number
         locationBoundingboxArea:
           nullable: false
-          type: "number"
+          type: number
         locationPoint:
           nullable: false
-          type: "string"
+          type: string
         keywords:
           nullable: false
-          type: "array"
+          type: array
           items:
-            type: "string"
+            type: string
     StoryWithDetailsPaged:
       properties:
         content:
           nullable: false
-          type: "array"
+          type: array
           items:
             $ref: "#/components/schemas/StoryWithDetails"
         page:
@@ -106,26 +108,26 @@ components:
       properties:
         size:
           nullable: false
-          type: "number"
+          type: number
         number:
           nullable: false
-          type: "number"
+          type: number
         totalElements:
           nullable: false
-          type: "number"
+          type: number
         totalPages:
           nullable: false
-          type: "number"
+          type: number
     Point:
       properties:
         type:
           nullable: false
-          type: "string"
+          type: string
         coordinates:
           nullable: false
-          type: "array"
+          type: array
           items:
-            type: "number"
+            type: number
     Location:
       properties:
         geometry:
