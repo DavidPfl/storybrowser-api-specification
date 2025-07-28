@@ -75,9 +75,6 @@ components:
         storyTitle:
           nullable: false
           type: string
-        storyText:
-          nullable: true
-          type: string
         locationLabel:
           nullable: false
           type: string
