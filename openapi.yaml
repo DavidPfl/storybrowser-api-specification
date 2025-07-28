@@ -72,6 +72,7 @@ components:
         storyDateTime:
           nullable: false
           type: string
+          format: date-time
         storyTitle:
           nullable: false
           type: string
