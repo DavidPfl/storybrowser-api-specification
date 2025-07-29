@@ -89,7 +89,7 @@ components:
           type: number
         locationPoint:
           nullable: false
-          $ref: "#/components/schemas/Point"
+          $ref: "#/components/schemas/GeomPoint"
         keywords:
           nullable: false
           type: array
@@ -119,7 +119,7 @@ components:
         totalPages:
           nullable: false
           type: integer
-    Point:
+    GeomPoint:
       properties:
         type:
           nullable: false
@@ -133,4 +133,4 @@ components:
       properties:
         geometry:
           nullable: false
-          $ref: "#/components/schemas/Point"
+          $ref: "#/components/schemas/GeomPoint"
