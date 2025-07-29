@@ -13,7 +13,6 @@ paths:
           name: endDate
           schema:
             type: string
-            # format: date-time
         - in: query
           name: keyword
           schema:
@@ -37,7 +36,6 @@ paths:
           name: startDate
           schema:
             type: string
-            # format: date-time
         - in: query
           name: pageNumber
           schema:
