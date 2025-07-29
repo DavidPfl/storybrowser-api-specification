@@ -129,6 +129,8 @@ components:
           type: array
           items:
             type: number
+      x-field-extra-annotation:
+        - "@JsonSerialize(using = PointSerializer.class)"
     Location:
       properties:
         geometry:
