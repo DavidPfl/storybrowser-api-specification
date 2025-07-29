@@ -129,8 +129,9 @@ components:
           type: array
           items:
             type: number
+            x-jackson-annotations:
       x-field-extra-annotation:
-        - "@JsonSerialize(using = PointSerializer.class)"
+        - "@com.fasterxml.jackson.databind.annotation.JsonSerialize(using = com.presseportal.backend.custom.PointSerializer.class)"
     Location:
       properties:
         geometry:
