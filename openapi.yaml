@@ -65,6 +65,15 @@ components:
   securitySchemes: {}
   schemas:
     StoryWithDetails:
+      required:
+        - storyUrl
+        - storyDateTime
+        - storyTitle
+        - locationLabel
+        - locationBoundingbox
+        - locationBoundingboxArea
+        - locationPoint
+        - keywords
       properties:
         storyUrl:
           nullable: false
@@ -96,6 +105,9 @@ components:
           items:
             type: string
     StoryWithDetailsPaged:
+      required:
+        - content
+        - page
       properties:
         content:
           nullable: false
