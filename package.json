@@ -1,4 +1,11 @@
 {
+  "name": "storybrowser-api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-api": "openapi-generator-cli generate -i openapi.yaml -g typescript-axios -o ./src/api/generated/openapi"
+  },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.21.3"
   }

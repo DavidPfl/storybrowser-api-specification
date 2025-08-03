@@ -1,0 +1,274 @@
+openapi: 3.0.0
+info:
+  title: Photon Geocoder API
+  version: "1.0.0"
+  description: |
+    OpenAPI specification for the Photon geocoder developed by Komoot.
+    Includes forward (`/api`) and reverse (`/reverse`) geocoding endpoints.
+servers:
+  - url: https://photon.komoot.io
+
+paths:
+  /api:
+    get:
+      tags:
+        - "geo"
+      summary: Forward geocoding (search)
+      operationId: search
+      parameters:
+        - name: q
+          in: query
+          required: true
+          description: Free-text query to geocode.
+          schema:
+            type: string
+        - name: lat
+          in: query
+          required: false
+          description: Latitude for location bias.
+          schema:
+            type: number
+        - name: lon
+          in: query
+          required: false
+          description: Longitude for location bias.
+          schema:
+            type: number
+        - name: zoom
+          in: query
+          required: false
+          description: Radius focus around lat/lon (corresponds to map zoom).
+          schema:
+            type: integer
+            default: 16
+        - name: location_bias_scale
+          in: query
+          required: false
+          description: 0.0 (ignore prominence) to 1.0 (equal to location).
+          schema:
+            type: number
+            default: 0.2
+        - name: bbox
+          in: query
+          required: false
+          description: Filter results by bounding box (minLon,minLat,maxLon,maxLat).
+          schema:
+            type: string
+        - name: limit
+          in: query
+          required: false
+          description: Max number of results to return.
+          schema:
+            type: integer
+        - name: lang
+          in: query
+          required: false
+          description: Preferred language for results (fallbacks to Accept-Language header).
+          schema:
+            type: string
+        - name: osm_tag
+          in: query
+          required: false
+          description: |
+            Filter results by OSM tag.
+            Format examples: `tourism:museum`, `!amenity:hospital`, `key`, `:value`, `:!value`
+          schema:
+            type: string
+        - name: layer
+          in: query
+          required: false
+          description: Filter results by one or more layers.
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                [
+                  house,
+                  street,
+                  locality,
+                  district,
+                  city,
+                  county,
+                  state,
+                  country,
+                  other,
+                ]
+            style: form
+            explode: true
+        - name: dedupe
+          in: query
+          required: false
+          description: "Whether to deduplicate overlapping results (default: true)."
+          schema:
+            type: integer
+            enum: [0, 1]
+      responses:
+        "200":
+          description: Successful geocode results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeatureCollection"
+
+  /reverse:
+    get:
+      tags:
+        - "geo"
+      summary: Reverse geocoding
+      operationId: reverseGeocode
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          description: Latitude to reverse geocode.
+          schema:
+            type: number
+        - name: lon
+          in: query
+          required: true
+          description: Longitude to reverse geocode.
+          schema:
+            type: number
+        - name: radius
+          in: query
+          required: false
+          description: Search radius in kilometers (0–5000).
+          schema:
+            type: number
+        - name: limit
+          in: query
+          required: false
+          description: Limit number of results.
+          schema:
+            type: integer
+        - name: lang
+          in: query
+          required: false
+          description: Preferred language for results.
+          schema:
+            type: string
+        - name: osm_tag
+          in: query
+          required: false
+          description: Filter results by OSM tag.
+          schema:
+            type: string
+        - name: layer
+          in: query
+          required: false
+          description: Restrict results by feature layer.
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                [
+                  house,
+                  street,
+                  locality,
+                  district,
+                  city,
+                  county,
+                  state,
+                  country,
+                  other,
+                ]
+            style: form
+            explode: true
+        - name: dedupe
+          in: query
+          required: false
+          description: Whether to deduplicate overlapping results.
+          schema:
+            type: integer
+            enum: [0, 1]
+      responses:
+        "200":
+          description: Reverse geocode result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeatureCollection"
+
+  /status:
+    get:
+      summary: API health check
+      operationId: statusCheck
+      tags:
+        - "geo"
+      responses:
+        "200":
+          description: Service is up
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: OK
+
+components:
+  schemas:
+    FeatureCollection:
+      type: object
+      required: [type, features]
+      properties:
+        type:
+          type: string
+          example: FeatureCollection
+        features:
+          type: array
+          items:
+            $ref: "#/components/schemas/Feature"
+
+    Feature:
+      type: object
+      required: [type, geometry, properties]
+      properties:
+        type:
+          type: string
+          example: Feature
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+              example: Point
+            coordinates:
+              type: array
+              items:
+                type: number
+              example: [13.3888599, 52.5170365]
+        properties:
+          type: object
+          properties:
+            name:
+              type: string
+            street:
+              type: string
+            housenumber:
+              type: string
+            postcode:
+              type: string
+            city:
+              type: string
+            state:
+              type: string
+            country:
+              type: string
+            countrycode:
+              type: string
+            osm_id:
+              type: integer
+            osm_key:
+              type: string
+            osm_value:
+              type: string
+            osm_type:
+              type: string
+              enum: [N, W, R]
+            extent:
+              type: array
+              items:
+                type: number
+            extra:
+              type: object

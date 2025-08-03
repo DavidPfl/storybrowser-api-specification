@@ -61,6 +61,13 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/StoryWithDetailsPaged"
+  /api:
+    $ref: "./splitted/photon.yaml#/paths/~1api"
+  /reverse:
+    $ref: "./splitted/photon.yaml#/paths/~1reverse"
+  /status:
+    $ref: "./splitted/photon.yaml#/paths/~1status"
+
 components:
   securitySchemes: {}
   schemas:
