@@ -1,5 +1,8 @@
 Keyword:
   type: "object"
+  required:
+    - keywordUrl
+    - keywordLabel
   properties:
     keywordUrl:
       type: "string"
