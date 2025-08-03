@@ -132,6 +132,9 @@ components:
           nullable: false
           type: integer
     GeomPoint:
+      required:
+        - type
+        - coordinates
       properties:
         type:
           nullable: false
