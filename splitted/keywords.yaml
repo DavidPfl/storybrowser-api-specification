@@ -1,5 +1,6 @@
 get:
   description: "get all keywords"
+  operationId: getKeywords
   tags:
     - stories
   parameters: []
