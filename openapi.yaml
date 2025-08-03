@@ -8,11 +8,9 @@ paths:
     get:
       operationId: getStoryWithDetails
       description: ""
+      tags:
+        - stories
       parameters:
-        - in: query
-          name: endDate
-          schema:
-            type: string
         - in: query
           name: keyword
           schema:
@@ -34,6 +32,10 @@ paths:
             format: double
         - in: query
           name: startDate
+          schema:
+            type: string
+        - in: query
+          name: endDate
           schema:
             type: string
         - in: query
