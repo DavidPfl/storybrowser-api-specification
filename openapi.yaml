@@ -125,6 +125,11 @@ components:
           nullable: false
           $ref: "#/components/schemas/PageInfo"
     PageInfo:
+      required:
+        - size
+        - number
+        - totalElements
+        - totalPages
       properties:
         size:
           nullable: false
