@@ -67,6 +67,8 @@ paths:
     $ref: "./splitted/photon.yaml#/paths/~1reverse"
   /status:
     $ref: "./splitted/photon.yaml#/paths/~1status"
+  /keywords:
+    $ref: "./splitted/keywords.yaml"
 
 components:
   securitySchemes: {}
@@ -161,3 +163,5 @@ components:
         geometry:
           nullable: false
           $ref: "#/components/schemas/GeomPoint"
+    Keyword:
+      $ref: "splitted/components.yaml/schemas/Keyword"

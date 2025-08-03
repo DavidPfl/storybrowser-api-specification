@@ -1,0 +1,7 @@
+Keyword:
+  type: "object"
+  properties:
+    keywordUrl:
+      type: "string"
+    keywordLabel:
+      type: "string"
