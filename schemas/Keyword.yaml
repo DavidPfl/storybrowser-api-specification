@@ -1,5 +1,4 @@
 Keyword:
-  type: "object"
   required:
     - keywordUrl
     - keywordLabel

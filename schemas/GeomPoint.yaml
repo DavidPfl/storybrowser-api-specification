@@ -1,0 +1,13 @@
+GeomPoint:
+  required:
+    - type
+    - coordinates
+  properties:
+    type:
+      nullable: false
+      type: string
+    coordinates:
+      nullable: false
+      type: array
+      items:
+        type: number

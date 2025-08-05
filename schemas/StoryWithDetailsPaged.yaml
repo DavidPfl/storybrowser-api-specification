@@ -1,0 +1,13 @@
+StoryWithDetailsPaged:
+  required:
+    - content
+    - page
+  properties:
+    content:
+      nullable: false
+      type: array
+      items:
+        $ref: "./StoryWithDetails.yaml"
+    page:
+      nullable: false
+      $ref: "./PageInfo.yaml"

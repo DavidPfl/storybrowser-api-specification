@@ -1,0 +1,3 @@
+Keywords:
+  type: array
+  items: $ref:"./Keyword.yaml"

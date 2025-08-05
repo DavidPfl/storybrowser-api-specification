@@ -1,0 +1,56 @@
+get:
+  operationId: getStoryWithDetails
+  description: ""
+  tags:
+    - stories
+  parameters:
+    - in: query
+      name: keyword
+      schema:
+        type: string
+    - in: query
+      name: lat
+      schema:
+        type: number
+        format: double
+    - in: query
+      name: lon
+      schema:
+        type: number
+        format: double
+    - in: query
+      name: radiusInMeters
+      schema:
+        type: number
+        format: double
+    - in: query
+      name: startDate
+      schema:
+        type: string
+    - in: query
+      name: endDate
+      schema:
+        type: string
+    - in: query
+      name: pageNumber
+      schema:
+        type: integer
+    - in: query
+      name: pageSize
+      schema:
+        type: integer
+    - in: query
+      name: sortBy
+      schema:
+        type: string
+    - in: query
+      name: ascending
+      schema:
+        type: boolean
+  responses:
+    200:
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/StoryWithDetailsPaged.yaml"

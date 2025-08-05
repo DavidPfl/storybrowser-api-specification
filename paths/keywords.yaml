@@ -12,4 +12,4 @@ get:
           schema:
             type: array
             items:
-              $ref: "components.yaml#/Keyword"
+              $ref: "../schemas/Keyword.yaml"
