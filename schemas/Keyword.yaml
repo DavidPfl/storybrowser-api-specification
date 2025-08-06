@@ -1,9 +1,8 @@
-Keyword:
-  required:
-    - keywordUrl
-    - keywordLabel
-  properties:
-    keywordUrl:
-      type: "string"
-    keywordLabel:
-      type: "string"
+required:
+  - keywordUrl
+  - keywordLabel
+properties:
+  keywordUrl:
+    type: "string"
+  keywordLabel:
+    type: "string"

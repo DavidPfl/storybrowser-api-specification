@@ -1,5 +1,4 @@
-Location:
-  properties:
-    geometry:
-      nullable: false
-      $ref: "./GeomPoint.yaml"
+properties:
+  geometry:
+    nullable: false
+    $ref: "./GeomPoint.yaml"

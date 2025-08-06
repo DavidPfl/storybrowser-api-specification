@@ -1,19 +1,18 @@
-PageInfo:
-  required:
-    - size
-    - number
-    - totalElements
-    - totalPages
-  properties:
-    size:
-      nullable: false
-      type: integer
-    number:
-      nullable: false
-      type: integer
-    totalElements:
-      nullable: false
-      type: integer
-    totalPages:
-      nullable: false
-      type: integer
+required:
+  - size
+  - number
+  - totalElements
+  - totalPages
+properties:
+  size:
+    nullable: false
+    type: integer
+  number:
+    nullable: false
+    type: integer
+  totalElements:
+    nullable: false
+    type: integer
+  totalPages:
+    nullable: false
+    type: integer

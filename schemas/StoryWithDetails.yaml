@@ -1,40 +1,39 @@
-StoryWithDetails:
-  required:
-    - storyUrl
-    - storyDateTime
-    - storyTitle
-    - locationLabel
-    - locationBoundingbox
-    - locationBoundingboxArea
-    - locationPoint
-    - keywords
-  properties:
-    storyUrl:
-      nullable: false
-      type: string
-    storyDateTime:
-      nullable: false
-      type: string
-      format: date-time
-    storyTitle:
-      nullable: false
-      type: string
-    locationLabel:
-      nullable: false
-      type: string
-    locationBoundingbox:
-      nullable: false
-      type: array
-      items:
-        type: number
-    locationBoundingboxArea:
-      nullable: false
+required:
+  - storyUrl
+  - storyDateTime
+  - storyTitle
+  - locationLabel
+  - locationBoundingbox
+  - locationBoundingboxArea
+  - locationPoint
+  - keywords
+properties:
+  storyUrl:
+    nullable: false
+    type: string
+  storyDateTime:
+    nullable: false
+    type: string
+    format: date-time
+  storyTitle:
+    nullable: false
+    type: string
+  locationLabel:
+    nullable: false
+    type: string
+  locationBoundingbox:
+    nullable: false
+    type: array
+    items:
       type: number
-    locationPoint:
-      nullable: false
-      $ref: "#/components/schemas/GeomPoint"
-    keywords:
-      nullable: false
-      type: array
-      items:
-        type: string
+  locationBoundingboxArea:
+    nullable: false
+    type: number
+  locationPoint:
+    nullable: false
+    $ref: "./GeomPoint.yaml"
+  keywords:
+    nullable: false
+    type: array
+    items:
+      type: string
