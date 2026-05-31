@@ -1,0 +1,19 @@
+get:
+  operationId: getStoryById
+  description: ""
+  tags:
+    - stories
+  parameters:
+    - in: path
+      name: storyId
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    200:
+      description: ""
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/Story.yaml"

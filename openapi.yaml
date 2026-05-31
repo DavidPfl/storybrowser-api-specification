@@ -4,6 +4,8 @@ info:
   title: ""
   description: ""
 paths:
+  /stories/{storyId}:
+    $ref: "./paths/getStoryById.yaml"
   /storyWithDetails:
     $ref: "./paths/storyWithDetails.yaml"
   /api:

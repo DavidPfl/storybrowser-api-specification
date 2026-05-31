@@ -1,0 +1,63 @@
+required:
+  - id
+  - storyUrl
+  - storyDateTime
+  - storyCustomer
+  - storyTitle
+  - storyText
+  - storyOriginator
+  - storyContacts
+  - storyCity
+  - llmStatus
+  - geocodeStatus
+properties:
+  id:
+    nullable: false
+    type: integer
+    format: int64
+  storyUrl:
+    nullable: false
+    type: string
+  storyDateTime:
+    nullable: false
+    type: string
+    format: date-time
+  storyCustomer:
+    nullable: false
+    type: string
+  storyTitle:
+    nullable: false
+    type: string
+  storyText:
+    nullable: false
+    type: string
+  storyOriginator:
+    nullable: false
+    type: string
+  storyContacts:
+    nullable: false
+    type: array
+    items:
+      type: string
+  storyCity:
+    nullable: false
+    type: string
+  llmStatus:
+    nullable: false
+    type: string
+    enum:
+      - pending
+      - inProgress
+      - done
+      - error
+  llmResponse:
+    nullable: true
+    $ref: "./StoryLocationPrediction.yaml"
+  geocodeStatus:
+    nullable: false
+    type: string
+    enum:
+      - pending
+      - done
+      - not_found
+      - error
