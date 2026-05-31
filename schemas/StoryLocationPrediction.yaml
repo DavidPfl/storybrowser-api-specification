@@ -1,0 +1,18 @@
+required:
+  - city
+  - street
+  - point_of_interest
+  - is_single_event
+properties:
+  city:
+    nullable: false
+    type: string
+  street:
+    nullable: false
+    type: string
+  point_of_interest:
+    nullable: false
+    type: string
+  is_single_event:
+    nullable: false
+    type: boolean
