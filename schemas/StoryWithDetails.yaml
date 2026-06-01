@@ -1,4 +1,5 @@
 required:
+  - storyId
   - storyUrl
   - storyDateTime
   - storyTitle
@@ -9,6 +10,10 @@ required:
   - keywords
   - mainLocationRationale
 properties:
+  storyId:
+    nullable: false
+    type: integer
+    format: int64
   storyUrl:
     nullable: false
     type: string
