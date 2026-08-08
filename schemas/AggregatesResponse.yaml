@@ -1,0 +1,26 @@
+required:
+  - total
+  - timeline
+  - granularity
+  - keywords
+properties:
+  total:
+    nullable: false
+    type: integer
+  timeline:
+    nullable: false
+    type: array
+    items:
+      $ref: "./TimelineBucket.yaml"
+  granularity:
+    nullable: false
+    type: string
+    enum:
+      - day
+      - week
+      - month
+  keywords:
+    nullable: false
+    type: array
+    items:
+      $ref: "./KeywordCount.yaml"

@@ -14,5 +14,7 @@ paths:
     $ref: "./splitted/photon.yaml#/paths/~1reverse"
   /status:
     $ref: "./splitted/photon.yaml#/paths/~1status"
+  /aggregates:
+    $ref: "./paths/aggregates.yaml"
   /keywords:
     $ref: "./paths/keywords.yaml"

@@ -1,0 +1,11 @@
+required:
+  - bucketStart
+  - count
+properties:
+  bucketStart:
+    nullable: false
+    type: string
+    format: date-time
+  count:
+    nullable: false
+    type: integer

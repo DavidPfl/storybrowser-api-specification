@@ -1,0 +1,10 @@
+required:
+  - keyword
+  - count
+properties:
+  keyword:
+    nullable: false
+    type: string
+  count:
+    nullable: false
+    type: integer
