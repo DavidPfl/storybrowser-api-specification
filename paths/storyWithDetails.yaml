@@ -9,6 +9,20 @@ get:
       schema:
         type: string
     - in: query
+      name: keywordType
+      required: false
+      description: >-
+        Selects which keyword set the `keyword` filter is matched against.
+        `original` (default) matches the raw keywords extracted from the source
+        portal; `cluster` matches the curated cluster keywords assigned to
+        stories. Omitting this parameter preserves the original behavior.
+      schema:
+        type: string
+        enum:
+          - original
+          - cluster
+        default: original
+    - in: query
       name: lat
       schema:
         type: number

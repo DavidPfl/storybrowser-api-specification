@@ -8,6 +8,7 @@ required:
   - locationBoundingboxArea
   - locationPoint
   - keywords
+  - clusterKeywords
   - mainLocationRationale
 properties:
   storyId:
@@ -41,6 +42,14 @@ properties:
   keywords:
     nullable: false
     type: array
+    items:
+      type: string
+  clusterKeywords:
+    nullable: false
+    type: array
+    description: >-
+      Curated cluster keywords assigned to the story; empty array when the story
+      has none.
     items:
       type: string
   mainLocationRationale:
