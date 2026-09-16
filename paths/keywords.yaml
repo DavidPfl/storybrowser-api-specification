@@ -3,7 +3,21 @@ get:
   operationId: getKeywords
   tags:
     - stories
-  parameters: []
+  parameters:
+    - in: query
+      name: keywordType
+      required: false
+      description: >-
+        Selects which keyword set to return. `original` (default) returns the
+        raw keywords extracted from the source portal; `cluster` returns the
+        curated cluster keywords assigned to stories. Omitting this parameter
+        preserves the original behavior.
+      schema:
+        type: string
+        enum:
+          - original
+          - cluster
+        default: original
   responses:
     "200":
       description: OK
